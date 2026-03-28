@@ -23,6 +23,7 @@ https://youtu.be/Z2rcsU3OZ3M
 - [Testando no Insomnia](#testando-no-insomnia)
 - [Testes Unitários](#testes-unitários)
 - [Melhorias Implementadas](#melhorias-implementadas)
+- [Próximas Features](#próximas-features)
 - [Equipe](#equipe)
 
 ---
@@ -636,6 +637,46 @@ Além das 3 operações solicitadas no exercício, foi adicionada a operação `
 
 A validação `"Reserva já cancelada"` foi movida do `throw new RuntimeException` (que gerava log `GRAVE` no console do IntelliJ) para uma verificação antecipada no `ReservaApplicationService`, retornando um `ReservaResponse.erro()` padronizado — mantendo o console limpo e a resposta consistente com os demais casos de erro.
 
+---
+
+---
+ 
+## Contexto de Implantação
+ 
+### Problema que o sistema resolve
+ 
+Laboratórios acadêmicos e de pesquisa enfrentam um problema recorrente: o controle manual de reservas de equipamentos. Sem um sistema centralizado, é comum ocorrer **conflitos de agendamento** — dois usuários tentando usar o mesmo equipamento ao mesmo tempo — além de falta de rastreabilidade sobre quem reservou o quê e quando.
+ 
+O **reserva-webservice** resolve esse problema expondo um serviço SOAP que permite:
+ 
+- Consultar em tempo real quais equipamentos estão disponíveis
+- Reservar um equipamento de forma atômica, impedindo reservas duplicadas
+- Cancelar reservas e devolver o equipamento automaticamente ao estoque
+- Rastrear o histórico completo de todas as reservas realizadas
+ 
+### Contexto de implantação
+ 
+O serviço foi projetado para ser consumido por qualquer cliente capaz de enviar requisições SOAP — sistemas legados, ERPs acadêmicos, portais internos ou aplicações móveis. Por usar **JAX-WS com servidor HTTP embutido**, pode ser executado diretamente em qualquer máquina com Java 21, sem necessidade de servidor de aplicação externo como Tomcat ou JBoss.
+ 
+O WSDL gerado automaticamente em `http://localhost:8080/reserva?wsdl` serve como contrato do serviço, permitindo que qualquer cliente gere os stubs necessários para integração.
+ 
+---
+ 
+## Próximas Features
+ 
+Melhorias planejadas para versões futuras do projeto:
+ 
+| Feature | Descrição |
+|---|---|
+| **Persistência em banco de dados** | Substituir os repositórios em memória por implementações com JPA/Oracle, aproveitando a inversão de dependência já implementada — sem alterar nenhuma outra camada |
+| **Autenticação no SOAP Header** | Adicionar token de autenticação no `soapenv:Header` para controle de acesso às operações |
+| **Data e hora da reserva** | Registrar o timestamp de criação e cancelamento de cada reserva |
+| **Listagem de reservas por responsável** | Nova operação `buscarReservasPorResponsavel(String responsavel)` para filtrar o histórico por usuário |
+| **Listagem de reservas por equipamento** | Nova operação para consultar todas as reservas de um equipamento específico |
+| **Interface web** | Portal de consulta e gerenciamento de reservas consumindo o WebService SOAP |
+| **Containerização** | Empacotamento via Docker para facilitar a implantação em ambientes de produção |
+ 
+ 
 ---
 
 ## **Equipe**
