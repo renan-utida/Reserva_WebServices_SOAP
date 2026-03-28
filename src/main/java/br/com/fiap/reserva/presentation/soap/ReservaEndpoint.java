@@ -3,6 +3,7 @@ package br.com.fiap.reserva.presentation.soap;
 import br.com.fiap.reserva.application.dto.ReservaResponse;
 import br.com.fiap.reserva.application.service.ReservaApplicationService;
 import br.com.fiap.reserva.domain.model.Equipamento;
+import br.com.fiap.reserva.domain.model.Reserva;
 import br.com.fiap.reserva.infrastructure.repository.memory.*;
 
 import javax.jws.WebMethod;
@@ -15,17 +16,23 @@ public class ReservaEndpoint {
 
     private final ReservaApplicationService service;
     private final EquipamentoRepositoryMemory equipamentoRepo;
+    private final ReservaRepositoryMemory reservaRepo;
 
     public ReservaEndpoint() {
         this.equipamentoRepo = new EquipamentoRepositoryMemory();
-        var reservaRepo = new ReservaRepositoryMemory();
+        this.reservaRepo     = new ReservaRepositoryMemory();
 
-        this.service = new ReservaApplicationService(reservaRepo, this.equipamentoRepo);
+        this.service = new ReservaApplicationService(this.reservaRepo, this.equipamentoRepo);
     }
 
     @WebMethod
     public List<Equipamento> listarEquipamentos() {
         return equipamentoRepo.listar();
+    }
+
+    @WebMethod
+    public List<Reserva> listarHistoricoReservas() {
+        return reservaRepo.listar();
     }
 
     @WebMethod

@@ -44,6 +44,10 @@ public class ReservaApplicationService {
             return ReservaResponse.erro("Reserva não encontrada");
         }
 
+        if (reserva.getStatus() == StatusReserva.CANCELADA) {
+            return ReservaResponse.erro("Reserva já cancelada");
+        }
+
         reserva.cancelar();
 
         Equipamento equipamento = equipamentoRepository.buscarPorId(reserva.getEquipamentoId());
