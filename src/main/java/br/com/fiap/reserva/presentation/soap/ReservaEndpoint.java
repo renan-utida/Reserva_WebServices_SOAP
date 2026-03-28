@@ -4,8 +4,8 @@ import br.com.fiap.reserva.application.dto.ReservaResponse;
 import br.com.fiap.reserva.application.service.ReservaApplicationService;
 import br.com.fiap.reserva.infrastructure.repository.memory.*;
 
-import jakarta.jws.WebMethod;
-import jakarta.jws.WebService;
+import javax.jws.WebMethod;
+import javax.jws.WebService;
 
 @WebService
 public class ReservaEndpoint {
