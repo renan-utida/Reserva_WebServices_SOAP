@@ -265,6 +265,11 @@ Toda requisição usa a mesma configuração:
 </S:Envelope>
 ```
 
+#### Print de tela
+
+<img width="1200" height="585" alt="image" src="https://github.com/user-attachments/assets/69fb4858-ccc2-46e8-b247-ccce3e540887" />
+
+
 ---
 
 ### Requisição 2 — criarReserva
@@ -309,6 +314,11 @@ Toda requisição usa a mesma configuração:
 
 > ⚠️ Anote o `id` da reserva retornado — você vai precisar dele no `cancelarReserva`.
 
+#### Print de tela
+
+<img width="1200" height="585" alt="image" src="https://github.com/user-attachments/assets/280c2aec-62ae-4859-8167-bf4c78710058" />
+
+
 #### **Cenário B — Equipamento indisponível:** 
 
 Envie a mesma requisição (XML) do Cenário A novamente, sem alterar nada. Retorna `erro: Equipamento indisponível`.
@@ -320,6 +330,11 @@ Envie a mesma requisição (XML) do Cenário A novamente, sem alterar nada. Reto
     <erro>Equipamento indisponível</erro>
 </return>
 ```
+
+#### Print de tela
+
+<img width="1200" height="585" alt="image" src="https://github.com/user-attachments/assets/9d668bdf-6a1a-47a4-a702-21c9410b89c9" />
+
 
 #### **Cenário C — Equipamento inexistente:** 
 
@@ -341,6 +356,10 @@ Retorna `erro: Equipamento não encontrado`.
     <erro>Equipamento não encontrado</erro>
 </return>
 ```
+
+#### Print de tela
+
+<img width="1200" height="585" alt="image" src="https://github.com/user-attachments/assets/5e29da6c-fafb-4174-ae81-34dd6d2a63d7" />
 
 ---
 
@@ -387,6 +406,10 @@ Use o `id` retornado no `criarReserva` (Cenário A):
 </ns2:cancelarReservaResponse>
 ```
 
+#### Print de tela
+
+<img width="1200" height="585" alt="image" src="https://github.com/user-attachments/assets/9762de1f-54d4-4d09-bc46-b0993dc9688b" />
+
 ---
 
 #### **Cenário B — Reserva já cancelada** 
@@ -400,6 +423,10 @@ Envie a mesma requisição (XML) do cenário A novamente. Retorna `erro: Reserva
     <erro>Reserva já cancelada</erro>
 </return>
 ```
+
+#### Print de tela
+
+<img width="1200" height="585" alt="image" src="https://github.com/user-attachments/assets/ea0e844b-841c-41a9-92f6-e5cfbbdcf1e4" />
 
 ---
 
@@ -421,6 +448,10 @@ Altere o `reservaId`para um ID que não existe (ex: `99`). Retorna `erro: Reserv
     <erro>Reserva não encontrada</erro>
 </return>
 ```
+
+#### Print de tela
+
+<img width="1200" height="585" alt="image" src="https://github.com/user-attachments/assets/264d987a-d0bc-4ea3-9849-bffd7ebeba82" />
 
 ---
 
@@ -459,6 +490,10 @@ Altere o `reservaId`para um ID que não existe (ex: `99`). Retorna `erro: Reserv
     <!-- demais reservas criadas durante os testes -->
 </ns2:listarHistoricoReservasResponse>
 ```
+
+#### Print de tela
+
+<img width="1200" height="585" alt="image" src="https://github.com/user-attachments/assets/b0a0f4c9-2128-442a-9cb6-93ac2c236834" />
 
 ---
 
