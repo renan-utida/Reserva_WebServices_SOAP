@@ -1,5 +1,8 @@
 package br.com.fiap.reserva.domain.model;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement
 public class Equipamento {
 
     private int id;
@@ -7,15 +10,13 @@ public class Equipamento {
     private String descricao;
     private boolean disponivel;
 
+    public Equipamento() {}
+
     public Equipamento(int id, String nome, String descricao, boolean disponivel) {
         this.id = id;
         this.nome = nome;
         this.descricao = descricao;
         this.disponivel = disponivel;
-    }
-
-    public boolean isDisponivel() {
-        return disponivel;
     }
 
     public void indisponibilizar() {
@@ -28,5 +29,33 @@ public class Equipamento {
 
     public int getId() {
         return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String getDescricao() {
+        return descricao;
+    }
+
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
+    }
+
+    public boolean isDisponivel() {
+        return disponivel;
+    }
+
+    public void setDisponivel(boolean disponivel) {
+        this.disponivel = disponivel;
     }
 }

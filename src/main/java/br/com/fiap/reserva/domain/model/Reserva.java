@@ -1,11 +1,16 @@
 package br.com.fiap.reserva.domain.model;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement
 public class Reserva {
 
     private int id;
     private int equipamentoId;
     private String responsavel;
     private StatusReserva status;
+
+    public Reserva() {}
 
     public Reserva(int id, int equipamentoId, String responsavel) {
         this.id = id;
@@ -33,7 +38,23 @@ public class Reserva {
         return equipamentoId;
     }
 
+    public void setEquipamentoId(int equipamentoId) {
+        this.equipamentoId = equipamentoId;
+    }
+
+    public String getResponsavel() {
+        return responsavel;
+    }
+
+    public void setResponsavel(String responsavel) {
+        this.responsavel = responsavel;
+    }
+
     public StatusReserva getStatus() {
         return status;
+    }
+
+    public void setStatus(StatusReserva status) {
+        this.status = status;
     }
 }

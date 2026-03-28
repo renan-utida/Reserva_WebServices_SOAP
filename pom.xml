@@ -16,15 +16,14 @@
 
     <dependencies>
 
-        <!-- JAWRS Runtime-->
+        <!-- JAX-WS: criação, publicação e geração de WSDL para WebServices SOAP -->
         <dependency>
             <groupId>com.sun.xml.ws</groupId>
             <artifactId>jaxws-rt</artifactId>
             <version>2.3.7</version>
-            <!--<version>4.0.2</version>-->
         </dependency>
 
-        <!-- JAXB API-->
+        <!-- JAXB API: converte objetos Java <-> XML -->
         <dependency>
             <groupId>javax.xml.bind</groupId>
             <artifactId>jaxb-api</artifactId>
