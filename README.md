@@ -6,6 +6,12 @@ Projeto desenvolvido para o **Checkpoint 1** da disciplina de **Arquitetura SOA 
 
 ---
 
+## 📹 Link vídeo de apresentação no Youtube:
+
+https://youtu.be/Z2rcsU3OZ3M
+
+---
+
 ## 📋 Sumário
 
 - [Sobre o Projeto](#sobre-o-projeto)
